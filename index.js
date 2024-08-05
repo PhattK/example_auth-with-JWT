@@ -2,8 +2,6 @@ const cors = require("cors");
 const express = require("express");
 const mysql = require("mysql2/promise");
 const jwt = require("jsonwebtoken");
-const cookieParser = require("cookie-parser");
-const session = require("express-session");
 const bcrypt = require("bcrypt");
 
 const app = express();
@@ -12,15 +10,6 @@ app.use(
   cors({
     credentials: true,
     origin: ["http://localhost:8888"],
-  }),
-);
-app.use(cookieParser());
-
-app.use(
-  session({
-    secret: "secret",
-    resave: false,
-    saveUninitialized: true,
   }),
 );
 
